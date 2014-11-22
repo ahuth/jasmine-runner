@@ -13,3 +13,4 @@ module.exports =
 
   deactivate: ->
     @jasmineRunnerController.destroy()
+    @jasmineRunnerController = null
