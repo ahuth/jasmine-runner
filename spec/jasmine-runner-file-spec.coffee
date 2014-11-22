@@ -16,7 +16,7 @@ describe "JasmineRunnerFile", ->
       file = new JasmineRunnerFile(editor)
       expect(file.lines.length).toBe 13
 
-      lineTexts = file.lines.map (tokenizedLine) -> tokenizedLine.text.trim()
+      lineTexts = file.lines.map (line) -> line.text
       expect(lineTexts).toEqual [
         "describe \"An example CoffeeScript test suite\", ->"
         "test1 = null"
