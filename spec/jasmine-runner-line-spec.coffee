@@ -11,7 +11,6 @@ describe "JasmineRunnerLine", ->
     runs ->
       editor = atom.workspace.getActiveEditor()
       tokenizedLines = editor.linesForScreenRows(0)
-      debugger
       line1 = new JasmineRunnerLine(tokenizedLines[0])
       line2 = new JasmineRunnerLine(tokenizedLines[tokenizedLines.length - 2])
 
