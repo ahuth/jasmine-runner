@@ -1,3 +1,4 @@
+shell = require 'shell'
 JasmineRunnerFile = require './jasmine-runner-file'
 JasmineRunnerNameGenerator = require './jasmine-runner-name-generator'
 JasmineRunnerCoffeescriptGrammar = require './grammars/coffeescript-grammar'
@@ -29,3 +30,8 @@ class JasmineRunnerController
     switch editorGrammar.scopeName
       when "source.coffee" then JasmineRunnerCoffeescriptGrammar
       when "source.js" then JasmineRunnerJavascriptGrammar
+
+  _openBrowser: (name) ->
+    testServerUrl = atom.config.get("jasmine-runner.testServerUrl")
+    fullUrl = "#{testServerUrl}/?spec=#{name}"
+    shell.openExternal(fullUrl)
