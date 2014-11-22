@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle jasmine-runner'
+      'command': 'jasmine-runner:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'jasmine-runner'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'jasmine-runner:toggle'
+        }
+      ]
+    ]
+  }
+]
