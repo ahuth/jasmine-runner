@@ -4,6 +4,6 @@ class JasmineRunnerCoffeeNameGenerator
     @grammar = new Grammar
 
   generateName: (tree) ->
-    names = tree.map (treeLine) =>
-      @grammar.match(treeLine.text).name || ""
+    matches = tree.map (treeLine) => @grammar.match(treeLine.text).name
+    names = matches.filter (match) -> match?
     names.join(" ")
