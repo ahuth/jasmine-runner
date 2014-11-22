@@ -11,28 +11,6 @@ describe "JasmineRunnerFile", ->
       runs ->
         editor = atom.workspace.getActiveEditor()
 
-    it "gets the lines up to the cursor position", ->
-      editor.setCursorScreenPosition({ column: 16, row: 12 })
-      file = new JasmineRunnerFile(editor)
-      expect(file.lines.length).toBe 13
-
-      lineTexts = file.lines.map (line) -> line.text
-      expect(lineTexts).toEqual [
-        "describe \"An example CoffeeScript test suite\", ->"
-        "test1 = null"
-        "test2 = null"
-        ""
-        "beforeEach ->"
-        "test1 = 2"
-        "test2 = 3"
-        ""
-        "describe \"First group\", ->"
-        "test3 = null"
-        ""
-        "beforeEach ->"
-        "test3 = 4"
-      ]
-
     it "gets the line tree from the cursor position to the top of the file", ->
       editor.setCursorScreenPosition({ column: 47, row: 38 })
       file = new JasmineRunnerFile(editor)
@@ -54,28 +32,6 @@ describe "JasmineRunnerFile", ->
 
       runs ->
         editor = atom.workspace.getActiveEditor()
-
-    it "gets the lines up to the cursor position", ->
-      editor.setCursorScreenPosition({ column: 16, row: 12 })
-      file = new JasmineRunnerFile(editor)
-      expect(file.lines.length).toBe 13
-
-      lineTexts = file.lines.map (line) -> line.text
-      expect(lineTexts).toEqual [
-        "describe(\"An examle JavaScript test suite\", function () {"
-        "var test1 = null;"
-        "var test2 = null;"
-        ""
-        "beforeEach(function () {"
-        "test1 = 2;"
-        "test2 = 3;"
-        "});"
-        ""
-        "describe(\"First group\", function () {"
-        "var test3 = null;"
-        ""
-        "beforeEach(function () {"
-      ]
 
     it "gets the line tree from the cursor position to the top of the file", ->
       editor.setCursorScreenPosition({ column: 53, row: 48 })
