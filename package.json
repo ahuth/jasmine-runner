@@ -6,7 +6,7 @@
   "activationCommands": {
     "atom-workspace": "jasmine-runner:toggle"
   },
-  "repository": "https://github.com/atom/jasmine-runner",
+  "repository": "https://github.com/ahuth/jasmine-runner",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
