@@ -1,4 +1,4 @@
-JasmineRunnerView = require './jasmine-runner-view'
+JasmineRunnerController = require './jasmine-runner-controller'
 
 module.exports =
   config:
@@ -6,13 +6,11 @@ module.exports =
       type: 'string'
       default: 'http://localhost:8888'
 
-  jasmineRunnerView: null
+  jasmineRunnerController: null
 
   activate: (state) ->
-    @jasmineRunnerView = new JasmineRunnerView(state.jasmineRunnerViewState)
+    @jasmineRunnerController = new JasmineRunnerController
 
   deactivate: ->
-    @jasmineRunnerView.destroy()
-
-  serialize: ->
-    jasmineRunnerViewState: @jasmineRunnerView.serialize()
+    @jasmineRunnerController.destroy()
+    @jasmineRunnerController = null
