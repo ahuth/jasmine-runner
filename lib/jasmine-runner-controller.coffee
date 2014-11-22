@@ -5,7 +5,6 @@ class JasmineRunnerController
     atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runTest()
 
   destroy: ->
-    # Nothing right now
 
   _runFile: ->
 
