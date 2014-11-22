@@ -14,3 +14,20 @@ class JasmineRunnerFile
   getLines: ->
     tokenizedLines = @editor.tokenizedLinesForScreenRows(0, @position.row)
     tokenizedLines.map (line) -> new JasmineRunnerLine(line)
+
+  getLineTree: ->
+    reversedTree = []
+    @_traverseUpTree (line) -> reversedTree.push(line)
+    reversedTree.reverse()
+
+  getLastLine: ->
+    @lines[@lines.length - 1]
+
+  _traverseUpTree: (callback) ->
+    lastLine = @getLastLine()
+    currentIndentLevel = lastLine.indentLevel
+    callback(lastLine)
+    for line in @lines by -1
+      if line.indentLevel < currentIndentLevel
+        currentIndentLevel = line.indentLevel
+        callback(line)
