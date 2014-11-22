@@ -1,6 +1,11 @@
 JasmineRunnerView = require './jasmine-runner-view'
 
 module.exports =
+  config:
+    testServerUrl:
+      type: 'string'
+      default: 'http://localhost:8888'
+
   jasmineRunnerView: null
 
   activate: (state) ->
