@@ -3,9 +3,7 @@
   "main": "./lib/jasmine-runner",
   "version": "0.0.0",
   "description": "A short description of your package",
-  "activationCommands": {
-    "atom-workspace": "jasmine-runner:toggle"
-  },
+  "activationCommands": {},
   "repository": "https://github.com/ahuth/jasmine-runner",
   "license": "MIT",
   "engines": {
