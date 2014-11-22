@@ -23,7 +23,7 @@ class JasmineRunnerController
     grammar = @_getGrammar(editor)
     generator = new JasmineRunnerNameGenerator(grammar)
     name = generator.generateName(tree)
-    console.log name
+    @_openBrowser(name)
 
   _getGrammar: (editor) ->
     editorGrammar = editor.getGrammar()
