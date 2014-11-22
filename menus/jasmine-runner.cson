@@ -2,19 +2,31 @@
 'context-menu':
   'atom-text-editor': [
     {
-      'label': 'Toggle jasmine-runner'
-      'command': 'jasmine-runner:toggle'
+      'label': 'Run this Jasmine file'
+      'command': 'jasmine-runner:run-file'
+    },
+    {
+      'label': 'Run this Jasmine test'
+      'command': 'jasmine-runner:run-test'
     }
   ]
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'jasmine-runner'
+      'label': 'Jasmine Runner'
       'submenu': [
         {
-          'label': 'Toggle'
-          'command': 'jasmine-runner:toggle'
+          'label': 'Run all tests'
+          'command': 'jasmine-runner:run-all'
+        },
+        {
+          'label': 'Run current file'
+          'command': 'jasmine-runner:run-file'
+        },
+        {
+          'label': 'Run current test'
+          'command': 'jasmine-runner:run-test'
         }
       ]
     ]
