@@ -1,9 +1,12 @@
+JasmineRunnerLine = JasmineRunnerLine= require './jasmine-runner-line'
+
 module.exports =
 class JasmineRunnerFile
   constructor: (editor) ->
     @editor = editor
     @position = @editor.getCursorScreenPosition()
-    @lines = @editor.linesForScreenRows(0, @position.row)
+    tokenizedLines = @editor.linesForScreenRows(0, @position.row)
+    @lines = tokenizedLines.map (line) -> new JasmineRunnerLine(line)
 
   destroy: ->
     @editor = null
