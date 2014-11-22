@@ -1,0 +1,9 @@
+module.exports =
+class JasmineRunnerCoffeeNameGenerator
+  constructor: (Grammar) ->
+    @grammar = new Grammar
+
+  generateName: (tree) ->
+    matches = tree.map (treeLine) => @grammar.match(treeLine.text).name
+    names = matches.filter (match) -> match?
+    names.join(" ")
