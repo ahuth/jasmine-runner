@@ -17,10 +17,6 @@
       'label': 'Jasmine Runner'
       'submenu': [
         {
-          'label': 'Run all tests'
-          'command': 'jasmine-runner:run-all'
-        },
-        {
           'label': 'Run current file'
           'command': 'jasmine-runner:run-file'
         },
