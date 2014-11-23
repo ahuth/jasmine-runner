@@ -1,6 +1,6 @@
 {
   "name": "jasmine-runner",
-  "main": "./lib/jasmine-runner",
+  "main": "./lib/main",
   "version": "0.0.0",
   "description": "Run Jasmine specs from within Atom",
   "activationEvents": [
