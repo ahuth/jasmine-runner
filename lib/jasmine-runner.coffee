@@ -41,6 +41,7 @@ class JasmineRunner
       else NilGrammar
 
   _openBrowser: (name) ->
+    return unless name?
     testServerUrl = atom.config.get("jasmine-runner.testServerUrl")
     fullUrl = "#{testServerUrl}/?spec=#{name}"
     shell.openExternal(fullUrl)
