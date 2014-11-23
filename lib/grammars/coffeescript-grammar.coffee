@@ -10,10 +10,6 @@ class CoffeescriptGrammar
     ,\s[-=]>            # Match the function arrow (fat or skinny)
   ///
 
-  constructor: ->
-    @isMatch = undefined
-    @name = undefined
-
   match: (lineText) ->
     match = @_findMatch(lineText)
     {

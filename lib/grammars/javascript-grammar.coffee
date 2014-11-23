@@ -11,10 +11,6 @@ class JavascriptGrammar
     ,\sfunction\s+\(\)  # Match the function keyword
   ///
 
-  constructor: ->
-    @isMatch = undefined
-    @name = undefined
-
   match: (lineText) ->
     match = @_findMatch(lineText)
     {
