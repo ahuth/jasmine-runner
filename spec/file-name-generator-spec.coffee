@@ -1,6 +1,6 @@
-JasmineRunnerNameGenerator = require '../lib/jasmine-runner-name-generator'
+FileNameGenerator = require '../lib/file-name-generator'
 
-describe "JasmineRunnerNameGenerator", ->
+describe "FileNameGenerator", ->
   lineTree = null
   nameGenerator = null
 
@@ -10,7 +10,7 @@ describe "JasmineRunnerNameGenerator", ->
       { isMatch: true, name: match?[1] }
 
   beforeEach ->
-    nameGenerator = new JasmineRunnerNameGenerator(FakeGrammar)
+    nameGenerator = new FileNameGenerator(FakeGrammar)
 
   it "creates a name from a line tree", ->
     lineTree = [
@@ -19,14 +19,14 @@ describe "JasmineRunnerNameGenerator", ->
       { text: "describe \"Mixed operations\", ->" }
       { text: "it \"subtracts and divides them\", ->" }
     ]
-    expect(nameGenerator.generateName(lineTree)).toBe "An example CoffeeScript test suite Second group Mixed operations subtracts and divides them"
+    expect(nameGenerator.generateName(lineTree)).toBe "An example CoffeeScript test suite"
 
   it "handles lines that don't have a 'name'", ->
     lineTree = [
+      { text: "no match" }
       { text: "describe \"An example CoffeeScript test suite\", ->" }
       { text: "describe \"Second group\", ->" }
       { text: "describe \"Mixed operations\", ->" }
-      { text: "no match" }
       { text: "it \"subtracts and divides them\", ->" }
     ]
-    expect(nameGenerator.generateName(lineTree)).toBe "An example CoffeeScript test suite Second group Mixed operations subtracts and divides them"
+    expect(nameGenerator.generateName(lineTree)).toBe "An example CoffeeScript test suite"

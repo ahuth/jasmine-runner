@@ -1,7 +1,7 @@
 shell = require 'shell'
 File = require './file'
-JasmineRunnerNameGenerator = require './jasmine-runner-name-generator'
-JasmineRunnerFileNameGenerator = require './jasmine-runner-file-name-generator'
+TestNameGenerator = require './test-name-generator'
+FileNameGenerator = require './file-name-generator'
 JasmineRunnerCoffeescriptGrammar = require './grammars/coffeescript-grammar'
 JasmineRunnerJavascriptGrammar = require './grammars/javascript-grammar'
 JasmineRunnerNilGrammar = require './grammars/nil-grammar'
@@ -21,7 +21,7 @@ class JasmineRunnerController
     file = new File(editor)
     tree = file.getLineTree()
     grammar = @_getGrammar(editor)
-    generator = new JasmineRunnerFileNameGenerator(grammar)
+    generator = new FileNameGenerator(grammar)
     name = generator.generateName(tree)
     @_openBrowser(name)
 
@@ -30,7 +30,7 @@ class JasmineRunnerController
     file = new File(editor)
     tree = file.getLineTree()
     grammar = @_getGrammar(editor)
-    generator = new JasmineRunnerNameGenerator(grammar)
+    generator = new TestNameGenerator(grammar)
     name = generator.generateName(tree)
     @_openBrowser(name)
 
