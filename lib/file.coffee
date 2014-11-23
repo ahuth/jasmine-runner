@@ -1,7 +1,7 @@
-JasmineRunnerLine = JasmineRunnerLine= require './jasmine-runner-line'
+Line = require './line'
 
 module.exports =
-class JasmineRunnerFile
+class File
   constructor: (editor) ->
     @editor = editor
     @position = @editor.getCursorScreenPosition()
@@ -13,7 +13,7 @@ class JasmineRunnerFile
 
   getLines: ->
     tokenizedLines = @editor.tokenizedLinesForScreenRows(0, @position.row)
-    tokenizedLines.map (line) -> new JasmineRunnerLine(line)
+    tokenizedLines.map (line) -> new Line(line)
 
   getLineTree: ->
     reversedTree = []
