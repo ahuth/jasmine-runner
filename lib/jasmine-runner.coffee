@@ -7,7 +7,7 @@ JavascriptGrammar = require './grammars/javascript-grammar'
 NilGrammar = require './grammars/nil-grammar'
 
 module.exports =
-class JasmineRunnerController
+class JasmineRunner
   constructor: (serializeState) ->
     @workspace = atom.workspace
     atom.commands.add 'atom-workspace', 'jasmine-runner:run-file': => @_runFile()

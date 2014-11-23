@@ -2,16 +2,16 @@ JasmineRunnerPackage = require '../lib/main'
 
 describe "JasmineRunnerPackage", ->
   describe "activation", ->
-    it "creates a Jasmine Runner Controller", ->
-      expect(JasmineRunnerPackage.jasmineRunnerController).toBeNull()
+    it "creates a Jasmine Runner", ->
+      expect(JasmineRunnerPackage.jasmineRunner).toBeNull()
       JasmineRunnerPackage.activate()
-      expect(JasmineRunnerPackage.jasmineRunnerController).not.toBeNull()
+      expect(JasmineRunnerPackage.jasmineRunner).not.toBeNull()
 
   describe "deactivation", ->
     beforeEach ->
       JasmineRunnerPackage.activate()
 
     it "destroys the Jasmine Runner Controller", ->
-      expect(JasmineRunnerPackage.jasmineRunnerController).not.toBeNull()
+      expect(JasmineRunnerPackage.jasmineRunner).not.toBeNull()
       JasmineRunnerPackage.deactivate()
-      expect(JasmineRunnerPackage.jasmineRunnerController).toBeNull()
+      expect(JasmineRunnerPackage.jasmineRunner).toBeNull()

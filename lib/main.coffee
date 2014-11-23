@@ -1,4 +1,4 @@
-JasmineRunnerController = require './jasmine-runner-controller'
+JasmineRunner = require './jasmine-runner'
 
 module.exports =
   config:
@@ -6,11 +6,11 @@ module.exports =
       type: 'string'
       default: 'http://localhost:8888'
 
-  jasmineRunnerController: null
+  jasmineRunner: null
 
   activate: (state) ->
-    @jasmineRunnerController = new JasmineRunnerController
+    @jasmineRunner = new JasmineRunner
 
   deactivate: ->
-    @jasmineRunnerController.destroy()
-    @jasmineRunnerController = null
+    @jasmineRunner.destroy()
+    @jasmineRunner = null
