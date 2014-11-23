@@ -1,5 +1,13 @@
-# jasmine-runner package
+# Jasmine Runner package
 
-A short description of your package.
+For [Atom](https://atom.io/).
 
-![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+While running a rake server (such as with `rake jasmine`), open up specific Jasmine tests from within Atom.
+
+To use:
+
+1. Make sure your Jasmine server is running.
+2. Within your Jasmine specs, place your cursor within the test (or tests) you want to run.
+3. Press `cmd-ctrl-alt-r`, which will open up your browser with the correct url to run your tests.
+
+Also, you can press `cmd-trl-alt-t` to run the entire file you're in.
