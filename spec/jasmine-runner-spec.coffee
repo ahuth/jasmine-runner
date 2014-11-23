@@ -1,5 +1,4 @@
 {WorkspaceView} = require 'atom'
-shell = require 'shell'
 JasmineRunner = require '../lib/jasmine-runner'
 
 describe "JasmineRunner", ->
