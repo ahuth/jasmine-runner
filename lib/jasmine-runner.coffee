@@ -11,26 +11,25 @@ class JasmineRunner
   constructor: (serializeState) ->
     @workspace = atom.workspace
     atom.commands.add 'atom-workspace', 'jasmine-runner:run-file': => @_runFile()
-    atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runTest()
+    atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runSingle()
 
   destroy: ->
     @workspace = null
 
   _runFile: ->
     editor = @workspace.getActiveEditor()
-    file = new File(editor)
-    tree = file.getLineTree()
-    grammar = @_getGrammar(editor)
-    generator = new FileNameGenerator(grammar)
-    name = generator.generateName(tree)
-    @_openBrowser(name)
+    Grammar = @_getGrammar(editor)
+    @_runTests(editor, Grammar, FileNameGenerator)
 
-  _runTest: ->
+  _runSingle: ->
     editor = @workspace.getActiveEditor()
+    Grammar = @_getGrammar(editor)
+    @_runTests(editor, Grammar, TestNameGenerator)
+
+  _runTests: (editor, Grammar, Generator) ->
     file = new File(editor)
     tree = file.getLineTree()
-    grammar = @_getGrammar(editor)
-    generator = new TestNameGenerator(grammar)
+    generator = new Generator(Grammar)
     name = generator.generateName(tree)
     @_openBrowser(name)
 
