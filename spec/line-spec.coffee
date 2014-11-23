@@ -1,6 +1,6 @@
-JasmineRunnerLine= require '../lib/jasmine-runner-line'
+Line= require '../lib/line'
 
-describe "JasmineRunnerLine", ->
+describe "Line", ->
   line1 = null
   line2 = null
 
@@ -11,8 +11,8 @@ describe "JasmineRunnerLine", ->
     runs ->
       editor = atom.workspace.getActiveEditor()
       tokenizedLines = editor.tokenizedLinesForScreenRows(0)
-      line1 = new JasmineRunnerLine(tokenizedLines[0])
-      line2 = new JasmineRunnerLine(tokenizedLines[tokenizedLines.length - 2])
+      line1 = new Line(tokenizedLines[0])
+      line2 = new Line(tokenizedLines[tokenizedLines.length - 2])
 
   it "has the text", ->
     expect(line1.text).toBe 'describe "An example CoffeeScript test suite", ->'

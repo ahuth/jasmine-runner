@@ -1,6 +1,6 @@
-JasmineRunnerFile = require '../lib/jasmine-runner-file'
+File = require '../lib/file'
 
-describe "JasmineRunnerFile", ->
+describe "File", ->
   editor = null
 
   describe "CoffeeScript", ->
@@ -13,7 +13,7 @@ describe "JasmineRunnerFile", ->
 
     it "gets the line tree from the cursor position to the top of the file", ->
       editor.setCursorScreenPosition({ column: 47, row: 38 })
-      file = new JasmineRunnerFile(editor)
+      file = new File(editor)
 
       lineTree = file.getLineTree().map (line) -> line.text
       expect(lineTree.length).toBe 5
@@ -35,7 +35,7 @@ describe "JasmineRunnerFile", ->
 
     it "gets the line tree from the cursor position to the top of the file", ->
       editor.setCursorScreenPosition({ column: 53, row: 48 })
-      file = new JasmineRunnerFile(editor)
+      file = new File(editor)
 
       lineTree = file.getLineTree().map (line) -> line.text
       expect(lineTree.length).toBe 5

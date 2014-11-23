@@ -1,6 +1,6 @@
-JasmineRunnerFileNameGenerator = require '../lib/jasmine-runner-file-name-generator'
+FileNameGenerator = require '../../lib/generators/file-name-generator'
 
-describe "JasmineRunnerFileNameGenerator", ->
+describe "FileNameGenerator", ->
   lineTree = null
   nameGenerator = null
 
@@ -10,7 +10,7 @@ describe "JasmineRunnerFileNameGenerator", ->
       { isMatch: true, name: match?[1] }
 
   beforeEach ->
-    nameGenerator = new JasmineRunnerFileNameGenerator(FakeGrammar)
+    nameGenerator = new FileNameGenerator(FakeGrammar)
 
   it "creates a name from a line tree", ->
     lineTree = [

@@ -1,6 +1,6 @@
-JasmineRunnerNameGenerator = require '../lib/jasmine-runner-name-generator'
+TestNameGenerator = require '../../lib/generators/test-name-generator'
 
-describe "JasmineRunnerNameGenerator", ->
+describe "TestNameGenerator", ->
   lineTree = null
   nameGenerator = null
 
@@ -10,7 +10,7 @@ describe "JasmineRunnerNameGenerator", ->
       { isMatch: true, name: match?[1] }
 
   beforeEach ->
-    nameGenerator = new JasmineRunnerNameGenerator(FakeGrammar)
+    nameGenerator = new TestNameGenerator(FakeGrammar)
 
   it "creates a name from a line tree", ->
     lineTree = [
