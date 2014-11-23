@@ -2,9 +2,9 @@ shell = require 'shell'
 File = require './file'
 TestNameGenerator = require './test-name-generator'
 FileNameGenerator = require './file-name-generator'
-JasmineRunnerCoffeescriptGrammar = require './grammars/coffeescript-grammar'
-JasmineRunnerJavascriptGrammar = require './grammars/javascript-grammar'
-JasmineRunnerNilGrammar = require './grammars/nil-grammar'
+CoffeescriptGrammar = require './grammars/coffeescript-grammar'
+JavascriptGrammar = require './grammars/javascript-grammar'
+NilGrammar = require './grammars/nil-grammar'
 
 module.exports =
 class JasmineRunnerController
@@ -37,9 +37,9 @@ class JasmineRunnerController
   _getGrammar: (editor) ->
     editorGrammar = editor.getGrammar()
     switch editorGrammar.scopeName
-      when "source.coffee" then JasmineRunnerCoffeescriptGrammar
-      when "source.js" then JasmineRunnerJavascriptGrammar
-      else JasmineRunnerNilGrammar
+      when "source.coffee" then CoffeescriptGrammar
+      when "source.js" then JavascriptGrammar
+      else NilGrammar
 
   _openBrowser: (name) ->
     testServerUrl = atom.config.get("jasmine-runner.testServerUrl")
