@@ -1,5 +1,5 @@
 module.exports =
-class JasmineRunnerLine
+class Line
   constructor: (tokenizedLine) ->
     @tokenizedLine = tokenizedLine
     @text = @tokenizedLine.text.trim()
