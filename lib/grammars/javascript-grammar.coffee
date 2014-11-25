@@ -6,7 +6,7 @@ class JavascriptGrammar
     (?:describe|context|it)   # Match one of the Jasmine functions
     \(                  # Match an opening parenthese
     \s?                 # Match whitespace after the Jasmine function
-    ["']([^"']+)["']    # Capture the name of the block, not uncluding quotes
+    ["'](.+)["']        # Capture the name of the block, not uncluding quotes
     \s*                 # Match whitespace after the block name
     ,\sfunction\s+\(\)  # Match the function keyword
   ///
