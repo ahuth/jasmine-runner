@@ -28,7 +28,7 @@ class JasmineRunner
 
   _runTests: (editor, Grammar, Generator) ->
     file = new File(editor)
-    tree = file.getLineTree()
+    tree = file.getTree()
     generator = new Generator(Grammar)
     name = generator.generateName(tree)
     @browser.open(name) if name?
