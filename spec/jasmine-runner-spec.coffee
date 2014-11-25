@@ -8,7 +8,7 @@ describe "JasmineRunner", ->
   beforeEach ->
     jasmineRunner = new JasmineRunner
     atom.workspaceView = new WorkspaceView
-    spyOn(jasmineRunner, "_openBrowser")
+    spyOn(jasmineRunner.browser, "open")
 
     waitsForPromise ->
       atom.packages.activatePackage("language-coffee-script")
@@ -22,8 +22,8 @@ describe "JasmineRunner", ->
 
   it "opens the browser with the correct url for a single test", ->
     atom.workspaceView.trigger "jasmine-runner:run-test"
-    expect(jasmineRunner._openBrowser).toHaveBeenCalledWith("An example CoffeeScript test suite First group adds them")
+    expect(jasmineRunner.browser.open).toHaveBeenCalledWith("An example CoffeeScript test suite First group adds them")
 
   it "opens the browser with the correct url for a test file", ->
     atom.workspaceView.trigger "jasmine-runner:run-file"
-    expect(jasmineRunner._openBrowser).toHaveBeenCalledWith("An example CoffeeScript test suite")
+    expect(jasmineRunner.browser.open).toHaveBeenCalledWith("An example CoffeeScript test suite")
