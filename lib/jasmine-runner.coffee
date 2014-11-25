@@ -31,7 +31,7 @@ class JasmineRunner
     tree = file.getLineTree()
     generator = new Generator(Grammar)
     name = generator.generateName(tree)
-    @_openBrowser(name)
+    @_openBrowser(name) if name?
 
   _getGrammar: (editor) ->
     editorGrammar = editor.getGrammar()
@@ -41,7 +41,6 @@ class JasmineRunner
       else NilGrammar
 
   _openBrowser: (name) ->
-    return unless name?
     testServerUrl = atom.config.get("jasmine-runner.testServerUrl")
     fullUrl = "#{testServerUrl}/?spec=#{name}"
     shell.openExternal(fullUrl)
