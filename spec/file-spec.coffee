@@ -15,7 +15,7 @@ describe "File", ->
       editor.setCursorScreenPosition({ column: 47, row: 38 })
       file = new File(editor)
 
-      lineTree = file.getLineTree().map (line) -> line.text
+      lineTree = file.getTree().map (line) -> line.text
       expect(lineTree.length).toBe 5
       expect(lineTree).toEqual [
         "describe \"An example CoffeeScript test suite\", ->"
@@ -37,10 +37,10 @@ describe "File", ->
       editor.setCursorScreenPosition({ column: 53, row: 48 })
       file = new File(editor)
 
-      lineTree = file.getLineTree().map (line) -> line.text
+      lineTree = file.getTree().map (line) -> line.text
       expect(lineTree.length).toBe 5
       expect(lineTree).toEqual [
-        "describe(\"An examle JavaScript test suite\", function () {"
+        "describe(\"An example JavaScript test suite\", function () {"
         "describe(\"Second group\", function () {"
         "describe(\"Mixed operations\", function () {"
         "it(\"subtracts and divides them\", function () {"

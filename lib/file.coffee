@@ -15,7 +15,7 @@ class File
     tokenizedLines = @editor.tokenizedLinesForScreenRows(0, @position.row)
     tokenizedLines.map (line) -> new Line(line)
 
-  getLineTree: ->
+  getTree: ->
     reversedTree = []
     @_traverseUpTree (line) -> reversedTree.push(line)
     reversedTree.reverse()

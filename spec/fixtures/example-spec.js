@@ -1,4 +1,4 @@
-describe("An examle JavaScript test suite", function () {
+describe("An example JavaScript test suite", function () {
   var test1 = null;
   var test2 = null;
 

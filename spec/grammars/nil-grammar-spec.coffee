@@ -9,3 +9,6 @@ describe "nil grammar", ->
   it "does not match anything", ->
     match = grammar.match('describe "described", ->')
     expect(match.isMatch).toBe false
+
+    match = grammar.match('describe("described", function ()')
+    expect(match.isMatch).toBe false
