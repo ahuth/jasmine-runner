@@ -5,7 +5,7 @@ class CoffeescriptGrammar
     [fx]?               # Match an optional f (focus) or x (disable)
     (?:describe|context|it)   # Match one of the Jasmine functions
     \s                  # Match whitespace after the Jasmine function
-    ["']([^"']+)["']    # Capture the name of the block, not uncluding quotes
+    ["'](.+)["']        # Capture the name of the block, not uncluding quotes
     \s*                 # Match whitespace after the block name
     ,\s[-=]>            # Match the function arrow (fat or skinny)
   ///
