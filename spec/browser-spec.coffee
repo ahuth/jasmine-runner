@@ -15,3 +15,7 @@ describe "Browser", ->
   it "escapes pound signs", ->
     browser.open("#")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%23")
+
+  it "escapes question marks", ->
+    browser.open("?")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%22")

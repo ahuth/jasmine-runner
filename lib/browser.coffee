@@ -10,6 +10,7 @@ getTestServer = ->
 
 escapeUrl = (url) ->
   url.replace("#", "%23")
+     .replace("?", "%22")
 
 module.exports =
   open: (name) ->
