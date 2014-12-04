@@ -2,10 +2,14 @@ shell = require 'shell'
 
 makeTestUrl = (name) ->
   testServer = getTestServer()
-  "#{testServer}/?spec=#{name}"
+  escapedName = escapeUrl(name)
+  "#{testServer}/?spec=#{escapedName}"
 
 getTestServer = ->
   atom.config.get("jasmine-runner.testServerUrl") or "http://localhost:8888"
+
+escapeUrl = (url) ->
+  url.replace("#", "%23")
 
 module.exports =
   open: (name) ->

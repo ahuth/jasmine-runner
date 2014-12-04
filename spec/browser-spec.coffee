@@ -11,3 +11,7 @@ describe "Browser", ->
 
     browser.open("An example CoffeeScript test suite First group adds them")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=An example CoffeeScript test suite First group adds them")
+
+  it "escapes pound signs", ->
+    browser.open("this #has a hashtag")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=this %23has a hashtag")
