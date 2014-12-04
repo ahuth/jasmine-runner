@@ -1,11 +1,8 @@
 shell = require 'shell'
-Browser = require '../lib/browser'
+browser = require '../lib/browser'
 
 describe "Browser", ->
-  browser = null
-
   beforeEach ->
-    browser = new Browser
     spyOn(shell, "openExternal")
 
   it "opens the browser with the correct url", ->

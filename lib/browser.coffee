@@ -1,14 +1,13 @@
 shell = require 'shell'
 
+makeTestUrl = (name) ->
+  testServer = getTestServer()
+  "#{testServer}/?spec=#{name}"
+
+getTestServer = ->
+  atom.config.get("jasmine-runner.testServerUrl") or "http://localhost:8888"
+
 module.exports =
-class Browser
   open: (name) ->
-    url = @_makeTestUrl(name)
+    url = makeTestUrl(name)
     shell.openExternal(url)
-
-  _makeTestUrl: (name) ->
-    testServer = @_getTestServer()
-    "#{testServer}/?spec=#{name}"
-
-  _getTestServer: ->
-    atom.config.get("jasmine-runner.testServerUrl") or "http://localhost:8888"
