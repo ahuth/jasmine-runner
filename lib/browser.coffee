@@ -9,7 +9,8 @@ getTestServer = ->
   atom.config.get("jasmine-runner.testServerUrl") or "http://localhost:8888"
 
 escapeUrl = (url) ->
-  url.replace("#", "%23")
+  url.replace("%", "%25")
+     .replace("#", "%23")
      .replace("?", "%22")
 
 module.exports =
