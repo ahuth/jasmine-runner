@@ -1,4 +1,4 @@
-Browser = require './browser'
+browser = require './browser'
 File = require './file'
 TestNameGenerator = require './generators/test-name-generator'
 FileNameGenerator = require './generators/file-name-generator'
@@ -8,7 +8,6 @@ module.exports =
 class JasmineRunner
   constructor: (serializeState) ->
     @workspace = atom.workspace
-    @browser = new Browser
     atom.commands.add 'atom-workspace', 'jasmine-runner:run-file': => @_runFile()
     atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runSingle()
 
@@ -31,4 +30,4 @@ class JasmineRunner
     tree = file.getTree()
     generator = new Generator(Grammar)
     name = generator.generateName(tree)
-    @browser.open(name) if name?
+    browser.open(name) if name?
