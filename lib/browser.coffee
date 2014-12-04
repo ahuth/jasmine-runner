@@ -12,6 +12,7 @@ escapeUrl = (url) ->
   url.replace("%", "%25")
      .replace("#", "%23")
      .replace("?", "%22")
+     .replace("/", "%2f")
 
 module.exports =
   open: (name) ->

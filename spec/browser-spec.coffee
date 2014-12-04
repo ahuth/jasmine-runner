@@ -23,3 +23,7 @@ describe "Browser", ->
   it "escapes percent signs", ->
     browser.open("%")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%25")
+
+  it "escapes forward slashes", ->
+    browser.open("/")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2f")
