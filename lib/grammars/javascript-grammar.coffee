@@ -8,7 +8,7 @@ class JavascriptGrammar
     \s?                 # Match whitespace after the Jasmine function
     ["'](.+)["']        # Capture the name of the block
     \s*                 # Match whitespace after the block name
-    ,\sfunction\s+\(\)  # Match the function keyword
+    ,\sfunction\s*\(\)  # Match the function keyword
   ///
 
   match: (lineText) ->

@@ -54,3 +54,7 @@ describe "JavaScript grammar", ->
   it "does not match anything else", ->
     match = grammar.match('lift("lifted", function ()')
     expect(match.isMatch).toBe false
+
+  it "matches when there is no whitespace after the function keyword", ->
+    match = grammar.match("describe('#initIndex', function() {")
+    expect(match.isMatch).toBe true
