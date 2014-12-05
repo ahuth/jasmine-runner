@@ -2,7 +2,8 @@ shell = require 'shell'
 
 makeTestUrl = (name) ->
   testServer = getTestServer()
-  "#{testServer}/?spec=#{name}"
+  escapedName = encodeURIComponent(name)
+  "#{testServer}/?spec=#{escapedName}"
 
 getTestServer = ->
   atom.config.get("jasmine-runner.testServerUrl") or "http://localhost:8888"
