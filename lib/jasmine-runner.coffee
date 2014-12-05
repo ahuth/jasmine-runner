@@ -2,7 +2,7 @@ browser = require './browser'
 File = require './file'
 TestNameGenerator = require './generators/test-name-generator'
 FileNameGenerator = require './generators/file-name-generator'
-GrammarFactory = require './grammars/grammar-factory'
+grammarFactory = require './grammars/grammar-factory'
 
 module.exports =
 class JasmineRunner
@@ -17,12 +17,12 @@ class JasmineRunner
 
   _runFile: ->
     editor = @workspace.getActiveEditor()
-    Grammar = GrammarFactory.for(editor)
+    Grammar = grammarFactory.for(editor)
     @_runTests(editor, Grammar, FileNameGenerator)
 
   _runSingle: ->
     editor = @workspace.getActiveEditor()
-    Grammar = GrammarFactory.for(editor)
+    Grammar = grammarFactory.for(editor)
     @_runTests(editor, Grammar, TestNameGenerator)
 
   _runTests: (editor, Grammar, Generator) ->

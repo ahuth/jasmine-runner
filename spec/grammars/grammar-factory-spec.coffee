@@ -1,4 +1,4 @@
-GrammarFactory = require '../../lib/grammars/grammar-factory'
+grammarFactory = require '../../lib/grammars/grammar-factory'
 
 describe "GrammarFactory", ->
   editor = null
@@ -15,7 +15,7 @@ describe "GrammarFactory", ->
         editor = atom.workspace.getActiveEditor()
 
     it "gets the correct grammar", ->
-      grammar = GrammarFactory.for(editor)
+      grammar = grammarFactory.for(editor)
       expect(grammar.name).toBe "CoffeescriptGrammar"
 
   describe "JavaScript", ->
@@ -30,7 +30,7 @@ describe "GrammarFactory", ->
         editor = atom.workspace.getActiveEditor()
 
     it "gets the correct grammar", ->
-      grammar = GrammarFactory.for(editor)
+      grammar = grammarFactory.for(editor)
       expect(grammar.name).toBe "JavascriptGrammar"
 
   describe "other file types", ->
@@ -40,5 +40,5 @@ describe "GrammarFactory", ->
           { scopeName: "source.x" }
 
     it "gets the nil grammar", ->
-      grammar = GrammarFactory.for(editor)
+      grammar = grammarFactory.for(editor)
       expect(grammar.name).toBe "NilGrammar"
