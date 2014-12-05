@@ -19,7 +19,7 @@ describe "Browser", ->
 
   it "escapes question marks", ->
     browser.open("?")
-    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%22")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%3F")
 
   it "escapes percent signs", ->
     browser.open("%")
@@ -27,8 +27,12 @@ describe "Browser", ->
 
   it "escapes forward slashes", ->
     browser.open("/")
-    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2f")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2F")
 
   it "escapes dollar signs", ->
     browser.open("$")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%24")
+
+  it "escapes ampersands", ->
+    browser.open("&")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%26")
