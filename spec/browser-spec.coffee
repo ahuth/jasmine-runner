@@ -36,3 +36,27 @@ describe "Browser", ->
   it "escapes ampersands", ->
     browser.open("&")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%26")
+
+  it "escapes +", ->
+    browser.open("+")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2B")
+
+  it "escapes ,", ->
+    browser.open(",")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2C")
+
+  it "escapes :", ->
+    browser.open(":")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%3A")
+
+  it "escapes ;", ->
+    browser.open(";")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%3B")
+
+  it "escapes =", ->
+    browser.open("=")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%3D")
+
+  it "escapes @", ->
+    browser.open("@")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%40")
