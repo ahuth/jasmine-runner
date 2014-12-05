@@ -27,3 +27,7 @@ describe "Browser", ->
   it "escapes forward slashes", ->
     browser.open("/")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2f")
+
+  it "escapes dollar signs", ->
+    browser.open("$")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%24")
