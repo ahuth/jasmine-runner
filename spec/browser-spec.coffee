@@ -9,6 +9,10 @@ describe "Browser", ->
     browser.open("test")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=test")
 
+  it "opens the browser with the correct url for a long test name", ->
+    browser.open("An example CoffeeScript test suite First group #adds them")
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=An%20example%20CoffeeScript%20test%20suite%20First%20group%20%23adds%20them")
+
   it "escapes pound signs", ->
     browser.open("#")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%23")
