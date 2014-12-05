@@ -17,6 +17,6 @@ describe "Browser", ->
     browser.open("$&+,/:;=?@")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%24%26%2B%2C%2F%3A%3B%3D%3F%40")
 
-  it "escapes #", ->
-    browser.open("#")
-    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%23")
+  it "escapes url unsafe characters", ->
+    browser.open(' <>"#%{}|\^[]`')
+    expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%20%3C%3E%22%23%25%7B%7D%7C%5E%5B%5D%60")
