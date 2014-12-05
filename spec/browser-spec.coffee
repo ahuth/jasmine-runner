@@ -13,27 +13,27 @@ describe "Browser", ->
     browser.open("An example CoffeeScript test suite First group #adds them")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=An%20example%20CoffeeScript%20test%20suite%20First%20group%20%23adds%20them")
 
-  it "escapes pound signs", ->
+  it "escapes #", ->
     browser.open("#")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%23")
 
-  it "escapes question marks", ->
+  it "escapes ?", ->
     browser.open("?")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%3F")
 
-  it "escapes percent signs", ->
+  it "escapes %", ->
     browser.open("%")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%25")
 
-  it "escapes forward slashes", ->
+  it "escapes /", ->
     browser.open("/")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%2F")
 
-  it "escapes dollar signs", ->
+  it "escapes $", ->
     browser.open("$")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%24")
 
-  it "escapes ampersands", ->
+  it "escapes &", ->
     browser.open("&")
     expect(shell.openExternal).toHaveBeenCalledWith("http://localhost:8888/?spec=%26")
 
