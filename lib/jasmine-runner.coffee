@@ -1,8 +1,8 @@
 browser = require './browser'
+grammarFactory = require './grammars/grammar-factory'
 File = require './file'
 TestNameGenerator = require './generators/test-name-generator'
 FileNameGenerator = require './generators/file-name-generator'
-grammarFactory = require './grammars/grammar-factory'
 
 module.exports =
 class JasmineRunner
