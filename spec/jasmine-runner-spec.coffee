@@ -1,14 +1,14 @@
-{WorkspaceView} = require 'atom'
 JasmineRunner = require '../lib/jasmine-runner'
 browser = require '../lib/browser'
 
 describe "JasmineRunner", ->
   editor = null
   jasmineRunner = null
+  view = null
 
   beforeEach ->
     jasmineRunner = new JasmineRunner
-    atom.workspaceView = new WorkspaceView
+    view = atom.views.getView(atom.workspace)
     spyOn(browser, "open")
 
     waitsForPromise ->
@@ -18,13 +18,13 @@ describe "JasmineRunner", ->
       atom.workspace.open("example-spec.coffee")
 
     runs ->
-      editor = atom.workspace.getActiveEditor()
+      editor = atom.workspace.getActiveTextEditor()
       editor.setCursorScreenPosition({ column: 43, row: 15 })
 
   it "opens the browser with the correct url for a single test", ->
-    atom.workspaceView.trigger "jasmine-runner:run-test"
+    atom.commands.dispatch(view, "jasmine-runner:run-test")
     expect(browser.open).toHaveBeenCalledWith("An example CoffeeScript test suite First group adds them")
 
   it "opens the browser with the correct url for a test file", ->
-    atom.workspaceView.trigger "jasmine-runner:run-file"
+    atom.commands.dispatch(view, "jasmine-runner:run-file")
     expect(browser.open).toHaveBeenCalledWith("An example CoffeeScript test suite")
