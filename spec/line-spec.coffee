@@ -9,7 +9,7 @@ describe "Line", ->
       atom.workspace.open("example-spec.coffee")
 
     runs ->
-      editor = atom.workspace.getActiveEditor()
+      editor = atom.workspace.getActiveTextEditor()
       tokenizedLines = editor.tokenizedLinesForScreenRows(0)
       line1 = new Line(tokenizedLines[0])
       line2 = new Line(tokenizedLines[tokenizedLines.length - 2])

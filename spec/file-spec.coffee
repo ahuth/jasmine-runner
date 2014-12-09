@@ -9,7 +9,7 @@ describe "File", ->
         atom.workspace.open("example-spec.coffee")
 
       runs ->
-        editor = atom.workspace.getActiveEditor()
+        editor = atom.workspace.getActiveTextEditor()
 
     it "gets the line tree from the cursor position to the top of the file", ->
       editor.setCursorScreenPosition({ column: 47, row: 38 })
@@ -31,7 +31,7 @@ describe "File", ->
         atom.workspace.open("example-spec.js")
 
       runs ->
-        editor = atom.workspace.getActiveEditor()
+        editor = atom.workspace.getActiveTextEditor()
 
     it "gets the line tree from the cursor position to the top of the file", ->
       editor.setCursorScreenPosition({ column: 53, row: 48 })

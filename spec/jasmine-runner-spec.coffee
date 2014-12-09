@@ -18,7 +18,7 @@ describe "JasmineRunner", ->
       atom.workspace.open("example-spec.coffee")
 
     runs ->
-      editor = atom.workspace.getActiveEditor()
+      editor = atom.workspace.getActiveTextEditor()
       editor.setCursorScreenPosition({ column: 43, row: 15 })
 
   it "opens the browser with the correct url for a single test", ->

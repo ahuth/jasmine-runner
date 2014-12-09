@@ -16,12 +16,12 @@ class JasmineRunner
     @browser = null
 
   _runFile: ->
-    editor = @workspace.getActiveEditor()
+    editor = @workspace.getActiveTextEditor()
     Grammar = grammarFactory.for(editor)
     @_runTests(editor, Grammar, FileNameGenerator)
 
   _runSingle: ->
-    editor = @workspace.getActiveEditor()
+    editor = @workspace.getActiveTextEditor()
     Grammar = grammarFactory.for(editor)
     @_runTests(editor, Grammar, TestNameGenerator)
 

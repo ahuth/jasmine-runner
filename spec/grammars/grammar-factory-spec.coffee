@@ -12,7 +12,7 @@ describe "GrammarFactory", ->
         atom.workspace.open("example-spec.coffee")
 
       runs ->
-        editor = atom.workspace.getActiveEditor()
+        editor = atom.workspace.getActiveTextEditor()
 
     it "gets the correct grammar", ->
       grammar = grammarFactory.for(editor)
@@ -27,7 +27,7 @@ describe "GrammarFactory", ->
         atom.workspace.open("example-spec.js")
 
       runs ->
-        editor = atom.workspace.getActiveEditor()
+        editor = atom.workspace.getActiveTextEditor()
 
     it "gets the correct grammar", ->
       grammar = grammarFactory.for(editor)
