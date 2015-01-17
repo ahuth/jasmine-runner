@@ -1,3 +1,7 @@
+## 0.1.4
+* Properly dispose of command subscriptions
+* Updated Atom engines in the package.json
+
 ## 0.1.3
 * Fixed more deprecation warnings
 
