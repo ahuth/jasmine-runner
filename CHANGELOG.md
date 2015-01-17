@@ -1,3 +1,6 @@
+## 0.1.3
+* Fixed more deprecation warnings
+
 ## 0.1.2
 * Internal refactoring
 * Fixed deprecation warnings
