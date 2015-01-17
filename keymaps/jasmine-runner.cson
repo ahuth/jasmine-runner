@@ -2,6 +2,6 @@
 # matched against the focused element, the keystroke and the command to
 # execute.
 
-'.workspace':
+'atom-workspace':
   'ctrl-alt-cmd-t': 'jasmine-runner:run-file'
   'ctrl-alt-cmd-r': 'jasmine-runner:run-test'
