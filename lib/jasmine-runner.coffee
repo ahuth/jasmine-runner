@@ -14,8 +14,6 @@ class JasmineRunner
     @subscriptions.add atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runSingle()
 
   destroy: ->
-    @workspace = null
-    @browser = null
     @subscriptions.dispose()
 
   _runFile: ->
