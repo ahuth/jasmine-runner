@@ -14,7 +14,7 @@ class JasmineRunner
     @subscriptions.push atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runSingle()
 
   destroy: ->
-    @subscriptions.forEach (subscription) -> subscription.dispose()
+    subscription.dispose() for subscription in @subscriptions
 
   _runFile: ->
     editor = @workspace.getActiveTextEditor()
