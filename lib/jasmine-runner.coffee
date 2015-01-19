@@ -3,7 +3,6 @@ grammarFactory = require './grammars/grammar-factory'
 File = require './file'
 FileNameGenerator = require './generators/file-name-generator'
 TestNameGenerator = require './generators/test-name-generator'
-{CompositeDisposable} = require 'event-kit'
 
 module.exports =
 class JasmineRunner
