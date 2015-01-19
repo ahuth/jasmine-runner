@@ -2,7 +2,7 @@
 
 For [Atom](https://atom.io/).
 
-While running a rake server (such as with `rake jasmine`), open up specific Jasmine tests from within Atom.
+While running a Jasmine server (such as with `rake jasmine`), open up specific tests from within Atom.
 
 To use:
 
