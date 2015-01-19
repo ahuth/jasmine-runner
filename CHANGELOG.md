@@ -1,3 +1,8 @@
+## 0.1.5
+* Removed event-kit dependency
+* Removed `/stylesheets` directory
+* Fixed an error in the readme
+
 ## 0.1.4
 * Properly dispose of command subscriptions
 * Updated Atom engines in the package.json
