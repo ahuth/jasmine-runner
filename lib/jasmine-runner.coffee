@@ -9,12 +9,12 @@ module.exports =
 class JasmineRunner
   constructor: (serializeState) ->
     @workspace = atom.workspace
-    @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace', 'jasmine-runner:run-file': => @_runFile()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runSingle()
+    @subscriptions = []
+    @subscriptions.push atom.commands.add 'atom-workspace', 'jasmine-runner:run-file': => @_runFile()
+    @subscriptions.push atom.commands.add 'atom-workspace', 'jasmine-runner:run-test': => @_runSingle()
 
   destroy: ->
-    @subscriptions.dispose()
+    @subscriptions.forEach (subscription) -> subscription.dispose()
 
   _runFile: ->
     editor = @workspace.getActiveTextEditor()
