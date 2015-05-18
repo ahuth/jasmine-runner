@@ -3,7 +3,7 @@
   "main": "./lib/main",
   "version": "0.1.5",
   "description": "Run Jasmine specs from within Atom",
-  "activationEvents": [
+  "activationCommands": [
     "jasmine-runner:run-file",
     "jasmine-runner:run-test"
   ],
