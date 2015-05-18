@@ -1,3 +1,6 @@
+## 0.1.6
+* Fixed deprecation cop warnings regarding activationCommands
+
 ## 0.1.5
 * Removed event-kit dependency
 * Removed `/stylesheets` directory
