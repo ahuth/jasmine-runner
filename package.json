@@ -3,10 +3,12 @@
   "main": "./lib/main",
   "version": "0.1.5",
   "description": "Run Jasmine specs from within Atom",
-  "activationEvents": [
-    "jasmine-runner:run-file",
-    "jasmine-runner:run-test"
-  ],
+  "activationCommands": {
+    "atom-text-editor": [
+      "jasmine-runner:run-file",
+      "jasmine-runner:run-test"
+    ]
+  },
   "repository": "https://github.com/ahuth/jasmine-runner",
   "license": "MIT",
   "engines": {
