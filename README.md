@@ -10,4 +10,4 @@ To use:
 2. Within your Jasmine specs, place your cursor within the test (or tests) you want to run.
 3. Press `cmd-ctrl-alt-r`, which will open up your browser with the correct url to run your tests.
 
-Also, you can press `cmd-trl-alt-t` to run the entire file you're in.
+Also, you can press `cmd-ctrl-alt-t` to run the entire file you're in.
