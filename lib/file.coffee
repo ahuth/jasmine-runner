@@ -10,20 +10,26 @@ class File
 
   getTree: ->
     tree = []
-    currentIndentLevel = @editor.indentationForBufferRow(@position.row)
+    currentIndentLevel = @_getIndent(@position.row)
 
     tree.push
-      text: @editor.lineTextForBufferRow(@position.row).trim()
+      text: @_getText(@position.row)
       indentLevel: currentIndentLevel
 
     for row in [@position.row..0]
-      text = @editor.lineTextForBufferRow(row).trim()
-      indentLevel = @editor.indentationForBufferRow(row)
+      text = @_getText(row)
+      indentLevel = @_getIndent(row)
 
       if text && indentLevel < currentIndentLevel
+        currentIndentLevel = indentLevel
         tree.push
           text: text
           indentLevel: indentLevel
-        currentIndentLevel = indentLevel
 
     tree.reverse()
+
+  _getIndent: (row) ->
+    @editor.indentationForBufferRow(row)
+
+  _getText: (row) ->
+    @editor.lineTextForBufferRow(row).trim()
