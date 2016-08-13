@@ -1,3 +1,6 @@
+## 0.1.7
+* Fixed problem caused by the TextEditor's `tokenizedLinesForScreenRows` being removed.
+
 ## 0.1.6
 * Fixed deprecation cop warnings regarding activationCommands
 
