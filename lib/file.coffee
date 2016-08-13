@@ -1,33 +1,31 @@
-Line = require './line'
-
 module.exports =
 class File
   constructor: (editor) ->
     @editor = editor
-    @position = @editor.getCursorScreenPosition()
-    @lines = @getLines()
-
-  destroy: ->
-    @editor = null
-    @lines = null
-
-  getLines: ->
-    tokenizedLines = @editor.tokenizedLinesForScreenRows(0, @position.row)
-    tokenizedLines.map (line) -> new Line(line)
+    @position = @editor.getCursorBufferPosition()
 
   getTree: ->
-    reversedTree = []
-    @_traverseUpTree (line) -> reversedTree.push(line)
-    reversedTree.reverse()
+    tree = []
+    currentIndentLevel = @_getIndent(@position.row)
 
-  getLastLine: ->
-    @lines[@lines.length - 1]
+    tree.push
+      text: @_getText(@position.row)
+      indentLevel: currentIndentLevel
 
-  _traverseUpTree: (callback) ->
-    lastLine = @getLastLine()
-    currentIndentLevel = lastLine.indentLevel
-    callback(lastLine)
-    for line in @lines by -1
-      if line.indentLevel < currentIndentLevel
-        currentIndentLevel = line.indentLevel
-        callback(line)
+    for row in [@position.row..0]
+      text = @_getText(row)
+      indentLevel = @_getIndent(row)
+
+      if text && indentLevel < currentIndentLevel
+        currentIndentLevel = indentLevel
+        tree.push
+          text: text
+          indentLevel: indentLevel
+
+    tree.reverse()
+
+  _getIndent: (row) ->
+    @editor.indentationForBufferRow(row)
+
+  _getText: (row) ->
+    @editor.lineTextForBufferRow(row).trim()
