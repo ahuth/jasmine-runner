@@ -4,10 +4,6 @@ class File
     @editor = editor
     @position = @editor.getCursorBufferPosition()
 
-  destroy: ->
-    @editor = null
-    @lines = null
-
   getTree: ->
     tree = []
     currentIndentLevel = @_getIndent(@position.row)
